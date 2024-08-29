@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VMLivros</title>
+      <!-- Adicione o favicon aqui -->
+      <link rel="icon" href="https://img.icons8.com/?size=100&id=49467&format=png&color=000000" type="image/png">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+      <style>
+        /* Reset básico e estilo geral */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: #0f0f0f;
+            color: #fff;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        header {
+            width: 100%;
+            height: 80px;
+            background: #1a1a1a;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            width: 0;
+            padding: 0;
+            border: 1px solid #333;
+            border-radius: 25px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+            transition: width 0.4s ease-in-out, padding 0.4s ease-in-out;
+            padding: 0 15px;
+            outline: none;
+            opacity: 0;
+        }
+
+        .search-input.open {
+            width: 250px;
+            padding: 10px;
+            opacity: 1;
+        }
+
+        .search-button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 10px;
+            margin-left: 10px;
+        }
+
+        .search-container i {
+            cursor: pointer;
+        }
+
+        nav {
+            background: #333;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav li {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            position: relative;
+        }
+
+        nav li a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+
+        nav li a:hover {
+            color: #00bcd4;
+        }
+
+        .nav-icon {
+            font-size: 20px;
+        }
+
+        .hero {
+            background-image: url('https://i.pinimg.com/originals/32/c7/e9/32c7e928d5baf7b75beac23605d4e82f.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .cta-button {
+            background-color: #00bcd4;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #0097a7;
+            transform: scale(1.05);
+        }
+
+        .main-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .product-card {
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            flex: 1 1 calc(25% - 20px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        .product-card p {
+            margin: 10px;
+            color: #bbb;
+        }
+
+        .product-card .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00bcd4;
+            margin: 10px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+            border: 1px solid #00bcd4;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .highlight {
+            background-color: yellow;
+            color: #000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-glasses"></i> VMLivros
+        </div>
+        <div class="header-content">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Digite e pressione Enter">
+                <i class="fas fa-search search-button"></i>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="https://luluxvpi.github.io/AVISO/"><i class="fas fa-book nav-icon"></i> Veja</a></li>
+            <li></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Bem-vindo à Nossa Biblioteca Virtual</h1>
+            <a href="https://luluxvpi.github.io/VMLivros/" class="cta-button">Entre no catálogo agora!</a>
+        </div>
+    </div>
+
+  <main class="main-content">
+        <!-- Linha 1 -->
+        <section class="product-list">
+            <div class="product-card animate__animated animate__fadeInUp">
+                <a href="https://luluxvpi.github.io/cole-oh-p/">
+                    <img src="https://www.amorporlivros.com.br/wp-content/uploads/livros-serie-harry-potter-jk-rowling.webp" alt="Coleção Harry Potter">
+                </a>
+                <h3>Coleção Harry Potter</h3>
+                <p>Todos os 8 livros</p>
+            </div>
+
+              <!-- Linha 2 -->
+            <div class="product-card animate__animated animate__fadeInUp">
+                <a href="https://luluxvpi.github.io/COLE-O-N-RNIA-p/">
+                    <img src="https://m.media-amazon.com/images/I/91h8wWW012L._AC_UF1000,1000_QL80_.jpg" alt="Coleção As Crônicas de Nárnia">
+                </a>
+                <h3>Coleção As Crônicas de Nárnia</h3>
+                <p>Todos os 7 livros</p>
+            </div>
+
+             <!-- Linha 3 -->
+            <div class="product-card animate__animated animate__fadeInUp">
+                <a href="https://luluxvpi.github.io/EXTRA-HP-p/">
+                    <img src="https://i.pinimg.com/736x/21/01/74/210174a2fee11f36ee58784e65eca05d.jpg" alt="Coleção Harry Potter Extra">
+                </a>
+                <h3>Edição especial Harry Potter</h3>
+                <p>4 livros extra</p>
+            </div>
+
+             <!-- Linha 4 -->
+            <div class="product-card animate__animated animate__fadeInUp">
+                <a href="https://luluxvpi.github.io/A-Saga-Crep-sculo-pc/">
+                    <img src="https://i0.wp.com/geekpopnews.com.br/wp-content/uploads/2022/12/Saga-Crepusculo-quais-sao-os-livros.jpg?resize=1200%2C640&ssl=1" alt="Produto 1">
+                </a>
+                <h3>A Saga Crepúsculo</h3>
+                <p>Todos os 6 livros</p>
+            </div>  
+                <!-- Linha 5 -->
+            <div class="product-card animate__animated animate__fadeInUp">
+            <a href="https://luluxvpi.github.io/VIDA-E-MORTE-p/">
+                <img src="https://m.media-amazon.com/images/I/61mqWydjN1L._AC_UF1000,1000_QL80_.jpg" alt="Produto 1">
+            </a>
+            <h3>Vida e Morte</h3>
+            <p>Edição especial da A Saga Crepúsculo</p>
+        </div>  
+        div>  
+                <!-- Linha 6 -->
+            <div class="product-card animate__animated animate__fadeInUp">
+            <a href="LINK">
+                <img src="IMG" alt="Produto 1">
+            </a>
+            <h3>NOME</h3>
+            <p>Descrição</p>
+        </div>  
+        div>  
+                <!-- Linha 7 -->
+            <div class="product-card animate__animated animate__fadeInUp">
+            <a href="LINK">
+                <img src="IMG" alt="Produto 1">
+            </a>
+            <h3>NOME</h3>
+            <p>Descrição</p>
+        </div>  
+
+        </section>
+
+        </main>
+    <footer>
+        <p>© 2023 VMLivros. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.querySelector('.search-input');
+            const searchButton = document.querySelector('.search-button');
+            const productCards = document.querySelectorAll('.product-card');
+
+            searchButton.addEventListener('click', function () {
+                searchInput.classList.toggle('open');
+                if (!searchInput.classList.contains('open')) {
+                    searchInput.value = '';
+                    productCards.forEach(card => {
+                        card.style.display = '';
+                    });
+                }
+                searchInput.focus();
+            });
+
+            searchInput.addEventListener('input', function () {
+                const searchTerm = searchInput.value.toLowerCase();
+                productCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+
+                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (searchTerm === '') {
+                    productCards.forEach(card => {
+                        card.style.display = '';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
