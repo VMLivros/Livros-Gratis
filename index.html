@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VMLivros</title>
-      <!-- Adicione o favicon aqui -->
-      <link rel="icon" href="https://img.icons8.com/?size=100&id=49467&format=png&color=000000" type="image/png">
-
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-      <style>
+    
+    <!-- Adicione o favicon aqui -->
+    <link rel="icon" href="https://img.icons8.com/?size=100&id=49467&format=png&color=000000" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        
+        /* Seu CSS existente permanece aqui */
         /* Reset básico e estilo geral */
         * {
             margin: 0;
@@ -206,6 +208,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            justify-content: center;
         }
 
         .product-card {
@@ -215,6 +218,7 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             overflow: hidden;
             flex: 1 1 calc(25% - 20px);
+            max-width: 250px;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
             position: relative;
             cursor: pointer;
@@ -222,70 +226,40 @@
 
         .product-card img {
             width: 100%;
-            height: auto;
+            height: 300px;
+            object-fit: cover;
         }
 
         .product-card h3 {
             font-size: 18px;
+            font-weight: 600;
             margin: 10px;
+            color: #fff;
         }
 
         .product-card p {
+            font-size: 14px;
+            color: #ccc;
             margin: 10px;
-            color: #bbb;
-        }
-
-        .product-card .price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #00bcd4;
-            margin: 10px;
+            line-height: 1.4;
         }
 
         .product-card:hover {
-            transform: translateY(-10px) rotate(2deg);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
-            border: 1px solid #00bcd4;
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+            border-color: #00bcd4;
         }
 
-        footer {
-            background-color: #1a1a1a;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 14px;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
+        @media (max-width: 768px) {
+            .product-list {
+                flex-direction: column;
+                align-items: center;
             }
 
-            to {
-                opacity: 1;
+            .product-card {
+                flex: 1 1 100%;
+                max-width: 90%;
             }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .highlight {
-            background-color: yellow;
-            color: #000;
-            font-weight: bold;
         }
     </style>
 </head>
@@ -379,36 +353,39 @@
                 <h3>Até o Verão Terminar</h3>
                 <p>Colleen Hoover</p>
             </div>
-                  <!-- Linha 8 -->
+
+                 <!-- Linha 2 -->
             <div class="product-card animate__animated animate__fadeInUp">
-                <a href="  ">
-                    <img src="  ">
+                <a href="LINK">
+                    <img src="LINK DE IMAGEM">
                 </a>
-                <h3>  </h3>
-                <p>  </p>
-            </div>
-                  <!-- Linha 3 -->
+                <h3>NOME DA COLEÇÃO</h3>
+                <p>QUANTIDADE</p>
+           </div>
+
+                <!-- Linha 2 -->
+                <div class="product-card animate__animated animate__fadeInUp">
+                    <a href="LINK">
+                        <img src="LINK DE IMAGEM">
+                    </a>
+                    <h3>NOME DA COLEÇÃO</h3>
+                    <p>QUANTIDADE</p>
+                </div>
+
+                    <!-- Linha 2 -->
             <div class="product-card animate__animated animate__fadeInUp">
-                <a href="  ">
-                    <img src="  " alt="Coleção Harry Potter Extra">
+                <a href="LINK">
+                    <img src="LINK DE IMAGEM" alt="Coleção As Crônicas de Nárnia">
                 </a>
-                <h3>  </h3>
-                <p>  </p>
+                <h3>NOME DA COLEÇÃO</h3>
+                <p>QUANTIDADE</p>
             </div>
-                <!-- Linha 7 -->
-            <div class="product-card animate__animated animate__fadeInUp">
-            <a href="LINK">
-                <img src="IMG" alt="Produto 1">
-            </a>
-            <h3>NOME</h3>
-            <p>Descrição</p>
-        </div>  
 
         </section>
 
         </main>
     <footer>
-        <p>© 2023 VMLivros.</p>
+        <p>© 2024 VMLivros.</p>
     </footer>
 
     <script>
@@ -448,7 +425,6 @@
                 }
             });
         });
-    </script>
-</body>
-
-</html>
+        </script>
+            </body>
+                </html>
