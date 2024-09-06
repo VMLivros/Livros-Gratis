@@ -1,168 +1,166 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VMLivros</title>
     
- 
-    <link rel="stylesheet" href="styles.css" />
-   <!-- Adicione o favicon aqui -->    <link rel="icon" href="https://img.icons8.com/?size=100&id=49467&format=png&color=000000" type="image/png">
+    <!-- Adicione o favicon aqui -->
+    <link href="https://fonts.googleapis.com/css?family=Vibur:400" rel="stylesheet" type="styler.css">
+    <link rel="icon" href="https://img.icons8.com/?size=100&id=49467&format=png&color=000000" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        
-        /* Seu CSS existente permanece aqui */
-
         /* Reset básico e estilo geral */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        body {
-    background: #0f0f0f;
-    color: #fff;
-    font-size: 18px; /* Aumenta o tamanho base da fonte */
-    line-height: 1.6; /* Ajusta o espaçamento entre linhas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    background: #0f0f0f;
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.6;
+    font-family: 'Roboto', sans-serif;
+}
 
-        header {
-            width: 100%;
-            height: 80px;
-            background: #1a1a1a;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-            box-shadow: 0 2px 20px rgba(23, 4, 235, 0.5);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+/* Estilo do cabeçalho */
+header {
+    width: 100%;
+    background: #1a1a1a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: 0 2px 20px rgba(23, 4, 235, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-        .centralizado {
-    display: flex;                /* Ativa o Flexbox */
-    align-items: center;          /* Alinha verticalmente ao centro */
-    justify-content: center;      /* Alinha horizontalmente ao centro */
-    gap: 10px;                    /* Espaçamento entre a imagem e o texto */
+.centralizado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .centralizado img {
-    height: 40px;                 /* Altura da imagem */
+    height: 40px;
 }
 
-.centralizado p {
-    margin: 0;                    /* Remove margens do <p> para alinhamento */
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
 
-        .header-content {
-            display: flex;
-            align-items: center;
-        }
+.search-input {
+    width: 0;
+    padding: 0;
+    border: 1px solid #333;
+    border-radius: 25px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    transition: width 0.4s ease-in-out, padding 0.4s ease-in-out;
+    padding: 0 15px;
+    outline: none;
+    opacity: 0;
+}
 
-        .search-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
+.search-input.open {
+    width: 250px;
+    padding: 10px;
+    opacity: 1;
+}
 
-        .search-input {
-            width: 0;
-            padding: 0;
-            border: 1px solid #333;
-            border-radius: 25px;
-            background-color: #333;
-            color: #fff;
-            font-size: 16px;
-            transition: width 0.4s ease-in-out, padding 0.4s ease-in-out;
-            padding: 0 15px;
-            outline: none;
-            opacity: 0;
-        }
+.search-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: 10px;
+}
 
-        .search-input.open {
-            width: 250px;
-            padding: 10px;
-            opacity: 1;
-        }
+.search-button img {
+    height: 40px;
+}
 
-        .search-button {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 18px;
-            cursor: pointer;
-            padding: 10px;
-            margin-left: 10px;
-        }
+/* Estilo da navegação */
+nav {
+    background: #33333300;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
+}
 
-        .search-container i {
-            cursor: pointer;
-        }
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+}
 
-        nav {
-            background: #33333300;
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 60px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
-        }
+nav li {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    position: relative;
+}
 
-        nav ul {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            padding: 0;
-        }
+nav li a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
 
-        nav li {
-            font-size: 16px;
-            font-weight: 600;
-            color: #fff;
-            position: relative;
-        }
+nav li a:hover {
+    color: #00bcd4;
+}
 
-        nav li a {
-            color: #fff;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: color 0.3s ease;
-        }
-
-        nav li a:hover {
-            color: #00bcd4;
-        }
-
-        .nav-icon {
-            font-size: 20px;
-        }
-
-        .hero {
+/* Estilo do hero */
+.hero {
     background-image: url('BANNER.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 450px;  /* Altura fixa para evitar que o conteúdo a altere */
+    height: 400px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: #00b7ff;
     text-align: center;
     position: relative;
-    overflow: hidden; /* Garante que o conteúdo não afete o tamanho */
+    overflow: hidden;
+}
+
+.hero-content {
+    z-index: 1;
+}
+
+.hero img {
+    max-width: 95%;
+    height: auto;
 }
 
 .hero::before {
@@ -173,115 +171,124 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 0; /* Garante que o pseudo-elemento fique atrás do conteúdo */
+    z-index: 0;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 1; /* Certifique-se de que o conteúdo esteja acima do pseudo-elemento */
+/* Estilo dos cards */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
 }
 
-.hero span {
-    font-size: 100px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-}
-
-
-.texto-negrito {
-    font-size: 22px;  /* Aumenta o tamanho da fonte */
-    font-weight: bold; /* Aplica negrito */
-    margin: 0;  /* Remove margens para melhor alinhamento */
-}
-
-
-        .cta-button:hover {
-            background-color: #0097a7;
-            transform: scale(1.05);
-        }
-
-        .main-content {
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
-            animation: fadeInUp 2s ease-in-out;
-        }
-
-        .product-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-           
-        }
-
-        .product-card {
-    background: #1e1e1e;
-    border: 1px solid #333;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    flex: 1 1 calc(25% - 20px);
-    max-width: 250px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+.card {
+    width: calc(20% - 10px);
+    height: 310px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px 13px;
+    background-color: red;
+    border-radius: 25px;
+    border: none;
+    color: white;
     position: relative;
     cursor: pointer;
-    padding: 15px; /* Adiciona espaçamento interno */
+    font-weight: 700;
+    transition-duration: .1s;
+    background: linear-gradient(0deg, #000, #272727);
 }
 
+.card:before, .card:after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
+    background-size: 400%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+    animation: steam 20s linear infinite;
+}
 
-        .product-card img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
+.card:after {
+    filter: blur(100px);
+}
 
-        .product-card h3 {
-    font-size: 18px;
-    margin: 10px;
+.card a {
     color: #fff;
-    letter-spacing: normal; /* Reduz o espaçamento entre letras */
-    line-height: 1.2; /* Ajusta o espaçamento entre linhas */
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: space-between;
 }
 
-.product-card p {
-    font-size: 14px; /* Aumenta o tamanho da fonte para melhor leitura */
-    color: #ccc;
-    margin: 10px;
-    line-height: 1.4; /* Ajusta o espaçamento entre linhas */
-    letter-spacing: normal; /* Reduz o espaçamento entre letras */
+@keyframes steam {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
 }
 
+/* Estilo do rodapé */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #1a1a1a;
+    color: #fff;
+}
 
-        .product-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
-            border-color: #00bcd4;
-        }
+/* Responsividade para dispositivos móveis */
+@media (max-width: 800px) {
+    .card {
+        width: calc(50% - 20px); /* Ajuste o card para 50% da largura */
+    }
 
-        @media (max-width: 768px) {
-            .product-list {
-                flex-direction: column;
-                align-items: center;
-            }
+    .hero {
+        height: 300px; /* Altura reduzida para telas menores */
+    }
 
-            .product-card {
-                flex: 1 1 100%;
-                max-width: 90%;
-            }
-        }
+    .hero img {
+        max-width: 100%;
+    }
+}
+
+/* Responsividade para dispositivos muito pequenos */
+@media (max-width: 480px) {
+    .card {
+        width: calc(100% - 20px); /* Ajuste o card para ocupar toda a largura */
+        height: auto;
+    }
+
+    .hero {
+        height: 250px; /* Altura ainda menor para telas menores */
+    }
+
+    .hero img {
+        max-width: 100%;
+    }
+}
     </style>
 </head>
-
 <body>
     <header>
-            <!-- Outros elementos do banner aqui -->
-            <div class="centralizado">
-                <img src="oculos.png" height="40" alt="Óculos"> 
-            </div>
-        
-        
-        
+        <div class="centralizado">
+            <img src="oculos.png" height="40" alt="Óculos"> 
+        </div>
+    
         <div class="header-content">
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="Digite e pressione Enter">
@@ -291,7 +298,6 @@
                 </button>
             </div>
         </div>
-        
     </header>
 
     <nav>
@@ -300,164 +306,140 @@
             <li></li>
         </ul>
     </nav>
-    
 
+    <!-- Substituído o texto neon pela imagem -->
     <div class="hero">
         <div class="hero-content">
-            <span class="text">&nbsp;Livros&nbsp;</span>
-      <span class="hover-text">&nbsp;Livros&nbsp;</span>
+            <img src="Bem Vindos.png" alt="Imagem PNG">
         </div>
     </div>
-
-  <main class="main-content">
-        <!-- Linha 1 -->
-        <section class="product-list">
-            <div class="product-card animate__animated animate__fadeInUp">
-                <a href="https://pdariusxvii.github.io/COLE-O-HP/">
-                    <img src="https://www.amorporlivros.com.br/wp-content/uploads/livros-serie-harry-potter-jk-rowling.webp" alt="Coleção Harry Potter">
-                </a>
+    
+    <!--CARD 1-->
+    <div class="card-container">
+        <div class="card">
+            <a href="https://pdariusxvii.github.io/COLE-O-HP/">
+                <img src="https://www.amorporlivros.com.br/wp-content/uploads/livros-serie-harry-potter-jk-rowling.webp" alt="Coleção NOME" style="width: 100%; border-radius: 10px;">
+               <br>
                 <h3>Harry Potter</h3>
                 <p>Todos os 8 livros</p>
-            </div>
-
-              <!-- Linha 2 -->
-            <div class="product-card animate__animated animate__fadeInUp">
-                <a href="https://pdariusxvii.github.io/AS-CR-NICAS-DE-N-RNIA/">
-                    <img src="https://m.media-amazon.com/images/I/91h8wWW012L._AC_UF1000,1000_QL80_.jpg" alt="Coleção As Crônicas de Nárnia">
-                </a>
-                <h3>As Crônicas de Nárnia</h3>
-                <p>Todos os 7 livros</p>
-            </div>
-
-             <!-- Linha 3 -->
-            <div class="product-card animate__animated animate__fadeInUp">
-                <a href="https://pdariusxvii.github.io/Extra-Harry-Pott/">
-                    <img src="https://i.pinimg.com/736x/21/01/74/210174a2fee11f36ee58784e65eca05d.jpg" alt="Coleção Harry Potter Extra">
-                </a>
-                <h3>Edição especial Harry Potter</h3>
-                <p>4 livros extra</p>
-            </div>
-
-             <!-- Linha 4 -->
-            <div class="product-card animate__animated animate__fadeInUp">
-                <a href="https://pdariusxvii.github.io/A-SAGA-CREP-SCULO/">
-                    <img src="https://i0.wp.com/geekpopnews.com.br/wp-content/uploads/2022/12/Saga-Crepusculo-quais-sao-os-livros.jpg?resize=1200%2C640&ssl=1" alt="Produto 1">
-                </a>
-                <h3>A Saga Crepúsculo</h3>
-                <p>Todos os 6 livros e 1 extra</p>
-            </div>  
-          
-                <!-- Linha 6 -->
-            <div class="product-card animate__animated animate__fadeInUp">
-            <a href="https://pdariusxvii.github.io/testaAA/">
-                <img src="https://upload.wikimedia.org/wikipedia/pt/c/ca/As_Cr%C3%B4nicas_de_Gelo_e_Fogo_livros.jpg" alt="Produto 1">
             </a>
-            <h3>Gelo e Fogo</h3>
-            <p>Todos os 5 Livros</p>
-        </div>  
-            
-      <!-- Linha 7 -->
-            <div class="product-card animate__animated animate__fadeInUp">
-                <a href="https://pdariusxvii.github.io/At-o-Ver-o-Terminar/">
-                    <img src="https://m.media-amazon.com/images/I/51hl45HnZgL._SY780_.jpg" alt="Pro">
-                </a>
-                <h3>Até o Verão Terminar</h3>
-                <p>Colleen Hoover</p>
-            </div>
+        </div>
 
-                 <!-- Linha 8 -->
-            <div class="product-card animate__animated animate__fadeInUp">
-                <a href="https://pdariusxvii.github.io/-Box-Saga-Acampamento-Shadow/">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgb895s-B_Tusw6bz8ujbjHbVPe5l6XSOUP3mXqGp73-d7gNR0CA33yDCq-VWkKGtC-NXSxyrvT2H9Q2uy58sYebGw2yAKmywfVwEdR5LHBjRuoMgiM-bRMvEHXq5Zk1Ig2D_S8S80MwxHK/s1600/shadow+falls.jpg">
-                </a>
-                <h3>Acampamento Shadow Falls</h3>
-                <p>Todos os 5 livros</p>
-           </div>
+        <!-- Cópie o card e crie mais -->
 
-                <!-- Linha 9 -->
-                <div class="product-card animate__animated animate__fadeInUp">
-                    <a href="https://pdariusxvii.github.io/M-fia/">
-                        <img src="https://i.pinimg.com/736x/98/4e/74/984e746933fd1937cfc39af725b8002f.jpg">
-                    </a>
-                    <h3>Máfia</h3>
-                    <p>Todos os 5 livros e 1 extra</p>
-                </div>
+  <!--CARD 2-->
+    <div class="card">
+        <a href="https://pdariusxvii.github.io/AS-CR-NICAS-DE-N-RNIA/">
+            <img src="https://m.media-amazon.com/images/I/91h8wWW012L._AC_UF1000,1000_QL80_.jpg" alt="Coleção NOME" style="width: 100%; border-radius: 10px;">
+            <br>
+            <h3>As Crônicas de Nárnia</h3>
+            <p>Todos os 7 livros</p>
+        </a>
+    </div>
 
-                    <!-- Linha 10 -->
-            <div class="product-card animate__animated animate__fadeInUp">
-                <a href="https://pdariusxvii.github.io/Di-rios-do-Vampiro/">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_994637-MLB46852288722_072021-O.webp" alt="Coleção As Crônicas de Nárnia">
-                </a>
-                <h3>Diários do Vampiro</h3>
-                <p>Todos os 7 livros</p>
-            </div>
+<!-- adicione mais cards aqui -->
 
-                      <!-- Linha 11 -->
-                <div class="product-card animate__animated animate__fadeInUp">
-                    <a href="https://pdariusxvii.github.io/Di-rios-de-Stefan/">
-                        <img src="https://ae01.alicdn.com/kf/Scf4dae9bba964ae0af1206c2488363eeq.jpg_640x640Q90.jpg_.webp">
-                    </a>
-                    <h3>Diários de Stefan</h3>
-                    <p>Todos os 5 e 1 extra</p>
-                </div>
+<!--CARD 3-->
+<div class="card">
+    <a href="https://pdariusxvii.github.io/Extra-Harry-Pott/">
+        <img src="https://i.pinimg.com/736x/21/01/74/210174a2fee11f36ee58784e65eca05d.jpg" alt="Coleção NOME" style="width: 100%; border-radius: 10px;">
+       
+        <h3>Edição especial Harry Potter</h3>
+        <p>4 livros extra</p>
+    </a>
+</div>
 
-                   <!-- Linha 12 -->
-                   <div class="product-card animate__animated animate__fadeInUp">
-                    <a href="LINK">
-                        <img src="LINK DE IMAGEM">
-                    </a>
-                    <h3>NOME DA COLEÇÃO</h3>
-                    <p>QUANTIDADE</p>
-                </div>
+<!--CARD 4-->
+<div class="card">
+    <a href="https://pdariusxvii.github.io/A-SAGA-CREP-SCULO/">
+        <img src="https://i0.wp.com/geekpopnews.com.br/wp-content/uploads/2022/12/Saga-Crepusculo-quais-sao-os-livros.jpg?resize=1200%2C640&ssl=1" alt="Coleção NOME" style="width: 100%; height: 180px; border-radius: 10px;">
+        <br>
+        <h3>A Saga Crepúsculo</h3>
+        <p>Todos os 6 livros e 1 extra</p>
+    </a>
+</div>
 
-                   <!-- Linha 13 -->
-                   <div class="product-card animate__animated animate__fadeInUp">
-                    <a href="LINK">
-                        <img src="LINK DE IMAGEM">
-                    </a>
-                    <h3>NOME DA COLEÇÃO</h3>
-                    <p>QUANTIDADE</p>
-                </div>
+<!--CARD 5-->
+<div class="card">
+    <a href="https://pdariusxvii.github.io/testaAA/">
+        <img src="https://upload.wikimedia.org/wikipedia/pt/c/ca/As_Cr%C3%B4nicas_de_Gelo_e_Fogo_livros.jpg" alt="Coleção NOME" style="width: 100%; border-radius: 10px;">
+        <h3>Gelo e Fogo</h3>
+        <p>Todos os 5 Livros</p>
+    </a>
+</div>
 
-                   <!-- Linha 14 -->
-                   <div class="product-card animate__animated animate__fadeInUp">
-                    <a href="LINK">
-                        <img src="LINK DE IMAGEM">
-                    </a>
-                    <h3>NOME DA COLEÇÃO</h3>
-                    <p>QUANTIDADE</p>
-                </div>
+<!--CARD 6-->
+<div class="card">
+    <div style="text-align: center;">
+            <a href="https://pdariusxvii.github.io/At-o-Ver-o-Terminar/">
+        <img src="https://i.pinimg.com/474x/f9/ae/a2/f9aea2bf569db8870b62d60e120a06cc.jpg" alt="Coleção NOME" style="width: 220px;height: 230px ; border-radius: 10px;">
+        <h3>Até o Verão Terminar</h3>
+        <p>Colleen Hoover</p>
+    </a>
+</div>
+    </div>
 
-                   <!-- Linha 15 -->
-                   <div class="product-card animate__animated animate__fadeInUp">
-                    <a href="LINK">
-                        <img src="LINK DE IMAGEM">
-                    </a>
-                    <h3>NOME DA COLEÇÃO</h3>
-                    <p>QUANTIDADE</p>
-                </div>
+<!--CARD 7-->
+<div class="card">
+    <a href="https://pdariusxvii.github.io/-Box-Saga-Acampamento-Shadow/">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgb895s-B_Tusw6bz8ujbjHbVPe5l6XSOUP3mXqGp73-d7gNR0CA33yDCq-VWkKGtC-NXSxyrvT2H9Q2uy58sYebGw2yAKmywfVwEdR5LHBjRuoMgiM-bRMvEHXq5Zk1Ig2D_S8S80MwxHK/s1600/shadow+falls.jpg" alt="Coleção NOME" style="width: 95%; border-radius: 10px; style="text-align: center;>
+        <h3>Acampamento Shadow Falls</h3>
+        <p>Todos os 5 livros</p>
+    </a>
+</div>
 
-                   <!-- Linha 16 -->
-                   <div class="product-card animate__animated animate__fadeInUp">
-                    <a href="LINK">
-                        <img src="LINK DE IMAGEM">
-                    </a>
-                    <h3>NOME DA COLEÇÃO</h3>
-                    <p>QUANTIDADE</p>
-                </div>
+<!--CARD 8-->
+<div class="card">
+    <a href="https://pdariusxvii.github.io/M-fia/">
+        <img src="https://i.pinimg.com/736x/98/4e/74/984e746933fd1937cfc39af725b8002f.jpg" alt="Coleção NOME" style="width: 100%; border-radius: 10px;">
+        <br>
+        <h3>Máfia</h3>
+        <p>Todos os 5 livros e 1 extra</p>
+    </a>
+</div>
 
-                      <!-- Linha 14 -->
-                <div class="product-card animate__animated animate__fadeInUp">
-                    <a href="LINK">
-                        <img src="LINK DE IMAGEM">
-                    </a>
-                    <h3>NOME DA COLEÇÃO</h3>
-                    <p>QUANTIDADE</p>
-                </div>
+<!--CARD 9-->
+<div class="card">
+    <a href="https://pdariusxvii.github.io/Di-rios-do-Vampiro/">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_994637-MLB46852288722_072021-O.webp" alt="Coleção NOME" style="width: 100%; border-radius: 10px;">
+        <br>
+        <h3>Diários do Vampiro</h3>
+        <p>Todos os 7 livros</p>
+    </a>
+</div>
 
-        </section>
+<!--CARD 10-->
+<div class="card">
+    <a href="https://pdariusxvii.github.io/Di-rios-de-Stefan/">
+        <img src="https://ae01.alicdn.com/kf/Scf4dae9bba964ae0af1206c2488363eeq.jpg_640x640Q90.jpg_.webp" alt="Coleção NOME" style="width: 100%; border-radius: 10px;">
+        <br>
+        <h3>Diários de Stefan</h3>
+        <p>Todos os 6 livros</p>
+    </a>
+</div>
 
-        </main>
+<!--CARD 11-->
+<div class="card">
+    <a href="LINK">
+        <img src="IMAGEM" alt="Coleção NOME" style="width: 100%; border-radius: 10px;">
+        <br>
+        <h3>NOME</h3>
+        <p>QUANTIDADE</p>
+    </a>
+</div>
+
+<!--FINAL NAO PODE ALTERAR-->
+<div class="card">
+    <a href="LINK">
+        <img src="IMAGEM" alt="Coleção NOME" style="width: 100%; border-radius: 10px;">
+        <br>
+        <h3>NOME</h3>
+        <p>QUANTIDADE</p>
+    </a>
+</div>
+    </div>
+
+    
     <footer>
         <p>© 2024 VMLivros.</p>
     </footer>
@@ -466,7 +448,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             const searchInput = document.querySelector('.search-input');
             const searchButton = document.querySelector('.search-button');
-            const productCards = document.querySelectorAll('.product-card');
+            const productCards = document.querySelectorAll('.card');
 
             searchButton.addEventListener('click', function () {
                 searchInput.classList.toggle('open');
@@ -499,6 +481,6 @@
                 }
             });
         });
-        </script>
-            </body>
-                </html>
+    </script>
+</body>
+</html>
