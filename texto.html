@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Animation</title>
+    <link rel="stylesheet" href="styler.css">
+    <link href="https://fonts.googleapis.com/css?family=Lilita+One" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background">
+        <div class="hidden-words">
+            <div class="infinite-words">
+                <p></p>
+                <ul>
+                    <li>Seja</li>
+                    <li>Bem</li>
+                    <li>Vindo</li>
+                    <li>a nossa</li>
+                    <li>biblioteca</li>
+                    <li>virtual</li>
+                </ul>
+            </div>
+         
+
+    <script>
+        document.getElementsByClassName("click-words")[0].addEventListener("click", function() {
+            var classe = this.getAttribute("class") + " active-animation";
+            this.setAttribute("class", classe);
+        })
+    </script>
+</body>
+
+</html>
