@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VMLivros</title>
     
-    <!-- Adicione o favicon aqui -->
-    <link rel="icon" href="https://img.icons8.com/?size=100&id=49467&format=png&color=000000" type="image/png">
+ 
+    <link rel="stylesheet" href="styles.css" />
+   <!-- Adicione o favicon aqui -->    <link rel="icon" href="https://img.icons8.com/?size=100&id=49467&format=png&color=000000" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         
         /* Seu CSS existente permanece aqui */
+
         /* Reset básico e estilo geral */
         * {
             margin: 0;
@@ -38,17 +40,28 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 2px 20px rgba(23, 4, 235, 0.5);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
+        .centralizado {
+    display: flex;                /* Ativa o Flexbox */
+    align-items: center;          /* Alinha verticalmente ao centro */
+    justify-content: center;      /* Alinha horizontalmente ao centro */
+    gap: 10px;                    /* Espaçamento entre a imagem e o texto */
+}
+
+.centralizado img {
+    height: 40px;                 /* Altura da imagem */
+}
+
+.centralizado p {
+    margin: 0;                    /* Remove margens do <p> para alinhamento */
+}
+
+        
 
         .header-content {
             display: flex;
@@ -96,13 +109,13 @@
         }
 
         nav {
-            background: #333;
+            background: #33333300;
             backdrop-filter: blur(10px);
             display: flex;
             align-items: center;
             justify-content: center;
             height: 60px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
         }
 
         nav ul {
@@ -137,60 +150,55 @@
         }
 
         .hero {
-            background-image: url('BANNER.png');
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-align: center;
-            position: relative;
-            margin-bottom: 20px;
-        }
+    background-image: url('BANNER.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 450px;  /* Altura fixa para evitar que o conteúdo a altere */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Garante que o conteúdo não afete o tamanho */
+}
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0; /* Garante que o pseudo-elemento fique atrás do conteúdo */
+}
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            animation: fadeIn 2s ease-in-out;
-        }
+.hero-content {
+    position: relative;
+    z-index: 1; /* Certifique-se de que o conteúdo esteja acima do pseudo-elemento */
+}
 
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-        }
+.hero span {
+    font-size: 100px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
 
-        .hero p {
-            font-size: 24px;
-            margin-top: 10px;
-        }
+.hero p {
+    font-size: 24px;
+    margin-top: 10px;
+}
 
-        .cta-button {
-            background-color: #00bcd4;
-            color: #fff;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-align: center;
-            font-size: 16px;
-            text-decoration: none;
-            margin-top: 20px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+.texto-negrito {
+    font-size: 22px;  /* Aumenta o tamanho da fonte */
+    font-weight: bold; /* Aplica negrito */
+    margin: 0;  /* Remove margens para melhor alinhamento */
+}
+
 
         .cta-button:hover {
             background-color: #0097a7;
@@ -266,27 +274,38 @@
 
 <body>
     <header>
-        <div class="logo">
-            <i class="fas fa-glasses"></i> VMLivros
-        </div>
+            <!-- Outros elementos do banner aqui -->
+            <div class="centralizado">
+                <img src="oculos.png" height="40" alt="Óculos"> 
+                <p class="texto-negrito">Livros</p> 
+            </div>
+        
+        
+        
         <div class="header-content">
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="Digite e pressione Enter">
-                <i class="fas fa-search search-button"></i>
+                <!-- Substituindo o ícone FontAwesome por uma imagem -->
+                <button class="search-button">
+                    <img src="lupa.png" height="40" alt="Pesquisar" class="search-icon">
+                </button>
             </div>
         </div>
+        
     </header>
 
     <nav>
         <ul>
-            <li><a href="https://luluxvpi.github.io/AVISO/"><i class="fas fa-book nav-icon"></i> Veja</a></li>
+            <li><a href="https://luluxvpi.github.io/AVISO/"><img src="livro.png" height="40" alt="Ícone do livro"> </a></li>
             <li></li>
         </ul>
     </nav>
+    
 
     <div class="hero">
         <div class="hero-content">
-            <h1>Bem-vindo à Nossa Biblioteca Virtual</h1>
+            <span class="text">&nbsp;Livros&nbsp;</span>
+      <span class="hover-text">&nbsp;Livros&nbsp;</span>
         </div>
     </div>
 
